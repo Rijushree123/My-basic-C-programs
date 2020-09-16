@@ -21,7 +21,7 @@ int main()
 	printf("\n 2-display");
 	printf("\n 3-insert_beginning");
 	printf("\n 4-insert_end");
-	printf("\n 5-insert_any");
+	printf("\n 5-insert_any_position");
 	printf("\n 6-delete_beg");
 	printf("\n 7-delete_end");
 	printf("\n 8-delete_any");
