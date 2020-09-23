@@ -1,0 +1,80 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 10
+int deq[MAX];
+int left=-1,right=-1;
+void input_deq();;
+void output_deq();
+void insert_left();
+void insert_right();
+void delete_left();
+void delete_right();
+void display();
+int main()
+{
+	int choice;
+	printf("\n1. INPUT restriction");
+	printf("\n OUTPUT restriction");
+	printf("\n Enter choice");
+	scanf("%d",&choice);
+	switch(choice)
+	{
+		case 1:input_deq();
+		break;
+		case 2:output_deq();
+		break;
+	}
+	return 0;
+}
+void input_deq()
+{
+	int choice;
+	do
+	{
+		printf("\nINPUT RESTRICTED");
+		printf("\n1.1. for Insert at right");
+		printf("\n1.2. for Delete from left");
+		printf("\n1.3. for Delete from right");
+		printf("\nFor Display");
+		printf("\nFor quit");
+		printf("\nEnter your Choice");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+		case 1:insert_right();
+		break;
+		case 2:delete_left();
+		break;
+		case 3:delete_right();
+		break;
+		case 4:display();
+		break;
+		}
+	}while(choice!=5);
+}
+void output_deq()
+{
+	int choice;
+	do
+	{
+		printf("\nINPUT RESTRICTED");
+		printf("\n1.1. for Insert at right");
+		printf("\n1.2. for Delete from left");
+		printf("\n1.3. for Delete from right");
+		printf("\nFor Display");
+		printf("\nFor quit");
+		printf("\nEnter your Choice");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+		case 1:insert_right();
+		break;
+		case 2:insert_left();
+		break;
+		case 3:delete_left();
+		break;
+		case 4:display();
+		break;
+		}
+	}while(choice!=5);
+}
