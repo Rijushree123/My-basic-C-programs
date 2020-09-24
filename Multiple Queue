@@ -1,0 +1,137 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 10
+int queue_array[MAX];
+int rear1=-1,rear2=MAX,front1=-1,front2=MAX;
+void insert1();
+void insert2();
+void del1();
+void del2();
+void display1();
+void display2();
+
+int main()
+{
+	int choice;
+	while(1)
+	{
+		printf("1.Insert element to queue1\n");
+		printf("2.Delete element from queue1\n");
+		printf("3.Display elements of queue1\n");
+		printf("4.Insert element to queue2\n");
+		printf("5.Delete element from queue2\n");
+		printf("6.Display elements of queue2\n");
+		printf("7.Quit\n");
+		printf("Enter your choice\n");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1:insert1();
+			break;
+			case 2:del1();
+			break;
+			case 3:display1();
+			break;
+			case 4:insert2();
+			break;
+			case 5:del2();
+			break;
+			case 6:display2();
+			break;
+			case 7:exit(1);
+			default:
+				printf("Wrong choice");
+		}
+	}
+}
+void insert1()
+{
+	int add_item;
+	if(rear1==rear2-1)
+		printf("Queue Overflow\n");
+	else
+	{
+		if(front1==-1 || rear1==-1)
+		front1=0;
+		printf("Insert the element in queue\n");
+		scanf("%d",&add_item);
+		rear1=rear1+1;
+		queue_array[rear1]=add_item;
+		
+	}
+}
+void del1()
+{
+	if(front1==-1)
+	{
+		printf("Queue Underflow\n");
+		return;
+	}
+	else
+	{
+		printf("Element deleted is:%d\n",queue_array[front1]);
+		front1=front1+1;
+		if
+		(front1>rear1)
+			front1=rear1=-1;
+	}
+}
+void display1()
+{
+	int i;
+	if(front1==-1)
+		printf("Queue is empty\n");
+	else
+	{
+		printf("Queue is :\n");
+		for(i=front1;i<=rear1;i++)
+			printf("%d",queue_array[i]);
+		printf("\n");
+	}
+}
+void insert2()
+{
+	int add_item;
+	if(rear2==rear1+1)
+	{
+		printf("Queue Overflow\n");
+	}
+	else
+	{
+		if(rear2==MAX && front2==MAX)
+		rear2=front2=MAX-1;
+		printf("Insert the element in queue\n");
+		scanf("%d",&add_item);
+		rear2=rear2-1;
+		queue_array[rear2]=add_item;
+		
+	}
+}
+void del2()
+{
+	if(front2==MAX)
+	{
+		printf("Queue Underflow\n");
+		return;
+	}
+	else
+	{
+		printf("Element deleted is:%d\n",queue_array[front2]);
+		front2=front2-1;
+		if(front2>rear2)
+			front2=rear2=MAX;
+	}
+}
+void display2()
+{
+	int i;
+	if(front2==MAX)
+		printf("Queue is empty\n");
+	else
+	{
+		printf("Queue is :\n");
+		for(i=front2;i>=rear2;i--)
+			printf("%d",queue_array[i]);
+		printf("\n");
+	}
+}
