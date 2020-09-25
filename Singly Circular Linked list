@@ -1,0 +1,172 @@
+ 
+#include<stdio.h>
+#include<stdlib.h>
+#include<malloc.h>
+struct node
+{
+	int data;
+	struct node *link;
+};
+struct node *start=NULL;
+
+void create();
+void display();
+void insert_beg();
+void insert_end();
+void delete_beg();
+void delete_end();
+
+
+int main()
+{
+	int ch;
+	printf("\n 1-create");
+	printf("\n 2-display");
+	printf("\n 3-insert_beginning");
+	printf("\n 4-insert_end");
+	printf("\n 5-delete_beg");
+	printf("\n 6-delete_end");
+	
+	 while(1)
+	 {
+	 	printf("\n Enter choice :");
+	 	scanf("%d",&ch);
+	 	switch(ch)
+	 	{
+	 		case 1:
+	 			create();
+	 			break;
+	 		case 2:
+	 			display();
+	 			break;
+	 		case 3:
+	 			insert_beg();
+	 			break;
+	 		case 4:
+	 			insert_end();
+	 			break;
+	 		case 5:
+	 			delete_beg();
+	 			break;
+	 		case 6:
+	 			delete_end();
+	 			break;
+	 		
+	 		default:
+	 			printf("Wrong Choice");
+		}
+
+	 }
+}
+
+void create()
+{
+	struct node *newnode, *p;
+    int n;
+    printf("Enter data");
+    scanf("%d",&n);
+	
+    while(n!=-1)
+	{
+		newnode = (struct node *)malloc(sizeof(struct node));
+    	newnode->data = n;     
+       	if(start==NULL)
+        	{
+        		newnode->link=newnode;
+        		start=newnode;
+			}
+			else
+		    {
+		 	  p = start;
+		  	  while(p->link!=start)
+			  p=p->link;
+			  p->link=newnode;
+			  newnode->link=start;
+			}
+			printf("\nEnter data");
+			scanf("%d",&n);
+	}
+}
+
+void display()
+{
+    struct node *p;
+    p=start;
+    if(start==NULL)
+    {
+    	printf("List is empty\n");
+    	return;
+	}
+    while(p->link!=start)
+    {
+        printf("\n%d",p->data);
+        p=p->link;
+    }
+    printf("\n%d",p->data);
+}
+void insert_beg()
+{
+	struct node *newnode,*p;
+	int n;
+	if(newnode==NULL)
+	{
+		printf("Unable to allocate memory");
+	}
+	else{
+		printf("Enter data");
+		scanf("%d",&n);
+		newnode=(struct node*)malloc(sizeof(struct node));
+		newnode->data=n;
+		p=start;
+		while(p->link!=start)
+		p=p->link;
+		p->link=newnode;
+		newnode->link=start;
+		start=newnode;
+	}
+}
+void insert_end()
+{
+	struct node *newnode,*p;
+	int n;
+	printf("\nEnter data");
+	scanf("%d",&n);
+	newnode=(struct node*)malloc(sizeof(struct node));
+	newnode->data=n;
+	p=start;
+	while(p->link!=start)
+		p=p->link;
+	p->link=newnode;
+	newnode->link=start;
+}
+void delete_beg()
+{
+	struct node *p;
+	if(start==NULL)
+	{
+		printf("\nNo list");
+	}
+	else
+	{
+		p=start;
+		while(p->link!=start)
+			p=p->link;
+		p->link=start->link;
+		free(start);
+		start=p->link;
+	}
+}
+
+void delete_end()
+{
+	struct node *p,*q;
+	p=start;
+	q=p;
+	while(p->link!=start)
+	{
+		q=p;
+		p=p->link;
+	}
+	q->link=p->link;
+	free(p);
+}
