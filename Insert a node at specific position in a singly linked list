@@ -1,0 +1,97 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#include<stdlib.h>
+#include<malloc.h>
+
+void insert_any();
+void display();
+
+struct node
+{
+	int data;
+	struct node *link;
+};
+struct node *start=NULL;
+
+
+int main()
+{
+    struct node *newnode, *p;
+    int n,num,i;
+    scanf("%d",&num);
+    
+	
+    for(i=0;i<num;i++)
+	{
+	    
+        scanf("%d",&n);
+		newnode = (struct node *)malloc(sizeof(struct node));
+    	newnode->data = n; 
+    	newnode->link=NULL;
+       	if(start==NULL)
+        	{
+        		start=newnode;
+			}
+			else
+		    {
+		 	  p = start;
+		  	  while(p->link!=NULL)
+			  p=p->link;
+			  p->link=newnode;
+			  
+			}
+			
+	}    
+    /*insert_any();*/
+    insert_any();
+    display();
+    
+    return 0;
+}
+void insert_any()
+{
+    int count=0;
+	struct node *newnode,*p,*q;
+	int data1,position;
+    scanf("\n%d",&data1);
+    scanf("\n%d",&position);
+	newnode=(struct node*)malloc(sizeof(struct node));
+	newnode->data=data1;
+	p=start;
+	while(p->link!=NULL)
+	{
+	    count=count+1;
+		if((count)==position)
+		{
+			q=p->link;
+			p->link=newnode;
+			newnode->link=q;
+			
+		}
+		p=p->link;
+		
+	}
+}
+void display()
+{
+    struct node *p;
+    p=start;
+    if(start==NULL)
+    {
+        printf("\nList is empty ");
+        return;
+    }
+    while(p->link!=NULL)
+    {
+        printf(" %d",p->data);
+        p=p->link;
+    }
+    printf(" %d",p->data);
+}
