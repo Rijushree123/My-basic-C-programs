@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int main()
+{
+	char str[30];
+	printf("Enter the string: ");
+	gets(str);
+	int c=0;
+	while(str[c]!='\0')
+	{
+		c++;
+	}
+	printf("The length of %s is: %d",str,c);
+}	
