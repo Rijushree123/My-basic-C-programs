@@ -70,7 +70,8 @@ void create()
 {
 	struct node *newnode, *p;
     int n;
-    printf("Enter data");
+    printf("\n Enter (-1) to end :\n\n");
+    printf(" Enter data: ");
     scanf("%d",&n);
 	
     while(n!=-1)
@@ -89,7 +90,7 @@ void create()
 			   	p=p->link;
 			   	p->link=newnode;
 			}
-			printf("\nEnter data");
+			printf(" Enter data: ");
 			scanf("%d",&n);
 	}
 }
