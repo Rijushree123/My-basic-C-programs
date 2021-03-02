@@ -1,0 +1,57 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node
+{
+    int data;
+    struct node *next;
+}node;
+node *head=NULL;
+
+node *createNode()
+{
+    node *temp;
+    temp=(node*)malloc(sizeof(node));
+    return temp;
+}
+
+void insertAtFirst()
+{
+    printf("Enter the data:-");
+    node *temp=createNode();
+    scanf("%d",&temp->data);
+    temp->next=head;
+    head=temp;
+}
+
+void traverse()
+{
+    node *ref=head;
+    printf("\tData in the List:-\n");
+    int count=0;
+    while(ref!=NULL)
+    {
+        count++;
+        printf("\t%d\n",ref->data);
+        ref=ref->next;
+    }
+    printf("\t Number of elements int he list %d",count);
+}
+
+int main()
+{
+    insertAtFirst();
+    insertAtFirst();
+    insertAtFirst();
+    
+    traverse();
+    return 0;
+}
