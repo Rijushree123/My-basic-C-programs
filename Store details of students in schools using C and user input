@@ -39,4 +39,4 @@ main()
         printf("\t\t\t Total Marks = %0.2f\n\n", student[i].total_marks); 
     } 
 }
-#Rijushree Guha
+#Rijushree
