@@ -23,3 +23,4 @@ void tower(int num,char frompeg,char topeg,char auxpeg)
 	printf(" Move disk %d from peg %c to peg %c\n",num,frompeg,topeg);
 	tower(num-1,auxpeg,topeg,frompeg);
 }
+#Rijushree Guha
